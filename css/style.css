@@ -1,0 +1,139 @@
+/**
+ * Variables
+ */
+/* 42, 111, 176 */
+                             /* #35a66f
+*/
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  background: #CAE4F2;
+  font-family: "Nunito", "Quicksand", "Valero Round", sans-serif;
+  font-weight: 100;
+  letter-spacing: -0.2px;
+  line-height: 1.6;
+    margin-top: 0%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: monospace;
+}
+
+/**
+ * Countdown Clock
+ */
+.countdown-clock {
+  width: 560px;
+  height: 120px;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color:solid black;
+  opacity: 0.89;
+  border-top: 5px solid purple;
+  border-bottom: 5px solid purple;
+}
+
+.pie {
+  fill: transparent;
+  stroke: rgb(234,170,242);
+  stroke-width: 100;
+  stroke-dasharray: 0 100;
+  transition: stroke-dasharray .3s ease;
+}
+
+.pie-plate {
+  position: absolute;
+  top: -8px;
+  left: -20px;
+  z-index: -1;
+  background: transparent;
+  border-radius: 50%;
+  display: block;
+  transform: rotate(-90deg);
+}
+
+#countdown {
+  list-style: none;
+  margin-bottom: 1em;
+}
+
+#countdown li {
+  display: inline-block;
+  margin: 1em 2em;
+  position: relative;
+}
+
+#countdown .number {
+  font-size: 4em;
+  margin: 10px 0 0;
+  padding: 0;
+  line-height: 1;
+}
+
+#countdown .label {
+  margin-top: -5px;
+}
+#text{
+    font-family: monospace;
+    font-size: 150%;
+    text-align: center;
+    margin-left: 16%;
+    margin-right: 16%;
+    padding-top: 1%;
+    
+    
+    
+}
+
+#text1{
+    font-family: monospace;
+    font-size: 180%;
+    text-align: center;
+    margin-left: 16%;
+    margin-right: 16%;
+    margin-top:1%;
+    margin-bottom: -2%;
+    
+    
+    
+}
+.Submitbutton {
+  background: #fcfeff;
+  background-image: -webkit-linear-gradient(top, #fcfeff, #ffffff);
+  background-image: -moz-linear-gradient(top, #fcfeff, #ffffff);
+  background-image: -ms-linear-gradient(top, #fcfeff, #ffffff);
+  background-image: -o-linear-gradient(top, #fcfeff, #ffffff);
+  background-image: linear-gradient(to bottom, #fcfeff, #ffffff);
+  -webkit-border-radius: 41;
+  -moz-border-radius: 41;
+  border-radius: 41px;
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
+  font-family: monospace;
+  color: #3d4399;
+  font-size: 20px;
+  padding: 1px 2px 1px 2px;
+  text-decoration: none;
+    margin-left: 41%;
+    bottom: -35em;
+}
+
+.Submitbutton:hover {
+  background: #CAE4F2;
+  background-image: -webkit-linear-gradient(top, #CAE4F2, #CAE4F2);
+  background-image: -moz-linear-gradient(top, #CAE4F2,#CAE4F2);
+  background-image: -ms-linear-gradient(top, #CAE4F2, #CAE4F2);
+  background-image: -o-linear-gradient(top, #CAE4F2, #CAE4F2);
+  background-image: linear-gradient(to bottom, #CAE4F2, #CAE4F2);
+  text-decoration: none;
+}

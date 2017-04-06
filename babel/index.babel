@@ -1,0 +1,128 @@
+/*
+ * Let it snow!
+ */
+$.fn.snow();
+
+/**
+ * Countdown Component
+ */
+var Countdown = React.createClass({
+  render: function() {
+    return (
+      <div className="countdown-clock">
+    <ul id="countdown">
+      <li id="days">
+        <div className="number">00</div>
+        <div className="label">Days</div>
+        <svg width="100" height="100" className="pie-plate">
+          <circle r="50" cx="50" cy="50" className="pie" />
+        </svg>
+      </li>
+      <li id="hours">
+        <div className="number">00</div>
+        <div className="label">Hours</div>
+        <svg width="100" height="100" className="pie-plate">
+          <circle r="50" cx="50" cy="50" className="pie" />
+        </svg>
+      </li>
+      <li id="minutes">
+        <div className="number">00</div>
+        <div className="label">Minutes</div>
+        <svg width="100" height="100" className="pie-plate">
+          <circle r="50" cx="50" cy="50" className="pie" stroke-dasharray="10"/>
+        </svg>
+      </li>
+      <li id="seconds">
+        <div className="number">00</div>
+        <div className="label">Seconds</div>
+        <svg width="100" height="100" className="pie-plate">
+          <circle r="50" cx="50" cy="50" className="pie" />
+        </svg>
+      </li>
+    </ul>
+    <p>Remaining 'til Christmas <span className="this-year"></span></p>
+  </div>
+    )
+  }
+});
+ReactDOM.render(
+  <Countdown/>,
+  document.querySelector('#clock')
+);
+
+/**
+ * Date Countdown timer
+ * @link http://codepen.io/chrisjdesigner/pen/dMbmoE
+ */
+var thisYear = new Date();
+var thisChristmas = thisYear.getFullYear() + "/12/25 00:00:00";
+var christmas = new Date( thisChristmas ),
+    days, hours, mins, secs;
+
+/* Display the current Year in the subheading */
+$('.this-year').text( thisYear.getFullYear() );
+
+$(function() {
+  // Calculate time to Christmas
+  timeToXmas();
+  // Transition from 0
+  numberTrans( '#days .number', days, 1000, 'easeOutQuad' );
+  numberTrans( '#hours .number', hours, 1000, 'easeOutQuad' );
+  numberTrans( '#minutes .number', mins, 1000, 'easeOutQuad' );
+  numberTrans( '#seconds .number', secs, 1000, 'easeOutQuad' );
+  // Begin countdown
+  setTimeout( countdownTimer, 1001 );
+});
+
+// function to calc Time to Christmas
+function timeToXmas() {
+  var today = new Date(); 
+  // diff between dates
+  var diff = (today - christmas)/1000;
+  var diff = Math.abs(Math.floor(diff));
+  
+  // Day to target
+  days = Math.floor(diff/(24*60*60));
+  secs = diff - days * 24*60*60;
+  // Hours
+  hours = Math.floor(secs/(60*60));
+  secs = secs - hours * 60*60;
+  // Minutes
+  mins = Math.floor(secs/60);
+  secs = secs - mins * 60;
+}
+
+// function to display the countdown Timer
+function countdownTimer() {
+  timeToXmas();
+  // display in front-end clock
+  // Seems like multiplying by 360(degrees) gives an inaccurate measure - 315 is the proper number to be an even division of the pie graph clock
+  $( '#days .number' ).text(days);
+  var dayResult = 315*(days/25) + ' ' + 360;
+  $( '#days .pie' ).css( { "stroke-dasharray": dayResult } );
+  $( '#hours .number' ).text(hours);
+  var hrResult = 315*(hours/24) + ' ' + 360;
+  $( '#hours .pie' ).css( { "stroke-dasharray": hrResult } );
+  $( '#minutes .number' ).text(mins);
+  var minResult = 315*(mins/60) + ' ' + 360;
+  $( '#minutes .pie' ).css( { "stroke-dasharray": minResult } );
+  $( '#seconds .number' ).text(secs);
+  var secResult = 315*(secs/60) + ' ' + 360;
+  $( '#seconds .pie' ).css( { "stroke-dasharray": secResult } );
+  // repeat every second
+  setTimeout(countdownTimer, 1000);
+}
+
+// Transition numbers
+function numberTrans( id, endpt, transDur, transEase ) {
+  $({numberCount: $(id).text()}).animate({numberCount: endpt}, {
+    duration: transDur,
+    easing: transEase,
+    step: function() {
+      $(id).text(Math.floor(this.numberCount));
+    },
+    complete: function() {
+      $(id).text(this.numberCount);
+    }
+  });
+};
