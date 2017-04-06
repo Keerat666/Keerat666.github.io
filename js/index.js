@@ -107,7 +107,7 @@ ReactDOM.render(React.createElement(Countdown, null), document.querySelector('#c
  * @link http://codepen.io/chrisjdesigner/pen/dMbmoE
  */
 var thisYear = new Date();
-var thisChristmas = thisYear.getFullYear() + "/04/06 03:56:30";
+var thisChristmas = thisYear.getFullYear() + "/04/08 00:00:00";
 var christmas = new Date(thisChristmas),
     days,
     hours,
