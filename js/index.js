@@ -1,9 +1,9 @@
-"use strict";
+
 
 /*
  * Let it snow!
  */
-
+alert("Hello World");
 document.getElementById("Submit").style.display="none";
     
 /**
@@ -96,6 +96,12 @@ var Countdown = React.createClass({
           )
         )
       ),
+              React.createElement(
+        "p",
+        null,
+        "",
+        React.createElement("span", { className: "this-year1" })
+      )
 
     );
   }
@@ -116,18 +122,6 @@ var christmas = new Date(thisChristmas),
 
 /* Display the current Year in the subheading */
 $('.this-year').text(thisYear.getFullYear());
-
-$(function () {
-  // Calculate time to Christmas
-  timeToXmas();
-  // Transition from 0
-  numberTrans('#days .number', days, 1000, 'easeOutQuad');
-  numberTrans('#hours .number', hours, 1000, 'easeOutQuad');
-  numberTrans('#minutes .number', mins, 1000, 'easeOutQuad');
-  numberTrans('#seconds .number', secs, 1000, 'easeOutQuad');
-  // Begin countdown
-  setTimeout(countdownTimer, 1001);
-});
 
 // function to calc Time to Christmas
 function timeToXmas() {
@@ -152,6 +146,19 @@ function timeToXmas() {
     
 
 }
+$(function () {
+  // Calculate time to Christmas
+  timeToXmas();
+  // Transition from 0
+  numberTrans('#days .number', days, 1000, 'easeOutQuad');
+  numberTrans('#hours .number', hours, 1000, 'easeOutQuad');
+  numberTrans('#minutes .number', mins, 1000, 'easeOutQuad');
+  numberTrans('#seconds .number', secs, 1000, 'easeOutQuad');
+  // Begin countdown
+  setTimeout(countdownTimer, 1001);
+});
+
+
 
 // function to display the countdown Timer
 function countdownTimer() {
