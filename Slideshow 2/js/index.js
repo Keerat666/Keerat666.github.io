@@ -41,7 +41,7 @@ $('.slideshow-left').slick({
   } else if (event.deltaX < 0 || event.deltaY > 0) {
     $(this).slick('slickPrev');
   };
-}).on('mousedown touchstart', function(){
+}).on('mousedown touchstart', function(event){
   dragging = true;
   tracking = $('.slick-track', $slider).css('transform');
   tracking = parseInt(tracking.split(',')[5]);
@@ -54,7 +54,7 @@ $('.slideshow-left').slick({
     diffTracking = newTracking - tracking;
     $('.slideshow-right .slick-track').css({'transform': 'matrix(1, 0, 0, 1, 0, ' + (rightTracking - diffTracking) + ')'});
   }
-}).on('mouseleave touchend mouseup', function(){
+}).on('mouseleave touchend mouseup', function(event){
   dragging = false;
 });
 
