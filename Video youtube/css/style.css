@@ -23,3 +23,7 @@ main {
 #bdy{
     background-color: rgb(104,204,167);
 }
+#link{
+    text-align: center;
+    margin-left:40%;
+}
