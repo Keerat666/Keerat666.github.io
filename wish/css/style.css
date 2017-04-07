@@ -711,3 +711,9 @@ body {
   75% {top:100px;}
   100% {top:400px;}
 }
+#collage{
+    width:50%;
+    height:50%;
+    margin-top: 05%;
+    margin-left:25%;
+}
