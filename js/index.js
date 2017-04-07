@@ -3,7 +3,6 @@
 /*
  * Let it snow!
  */
-alert("Hello World");
 document.getElementById("Submit").style.display="none";
     
 /**
