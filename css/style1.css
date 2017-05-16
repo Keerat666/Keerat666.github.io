@@ -476,11 +476,11 @@ section.bl-expand .bl-icon-close {
     font-family: Courier New;
     color: #ffffff;
     font-size: 20px;
-    padding: 10px 20px 10px 20px;
+    padding: 30px 30px 30px 30px;
     border:none;
     text-decoration: none;
     outline: none;
-	margin-bottom:23px;
+	margin-bottom:38px;
 }
 
 #surprise1:hover {
